@@ -34,7 +34,7 @@ jobs:
       - name: Build frontend
         run: |
           npm ci
-          npm run Build
+          npm run build
         working-directory: frontend
 
       - name: Run GoReleaser
