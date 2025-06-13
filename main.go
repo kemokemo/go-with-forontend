@@ -10,7 +10,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-//go:embed dist/*
+//go:embed frontendContents/*
 var embedContents embed.FS
 
 func main() {
@@ -20,8 +20,8 @@ func main() {
 func run() int {
 	router := gin.Default()
 
-	// distフォルダの中身を取り出す
-	staticContents, err := fs.Sub(embedContents, "dist")
+	// 第二引数の相対パスは、embedで指定したパスに一致させる
+	staticContents, err := fs.Sub(embedContents, "frontendContents")
 	if err != nil {
 		log.Println("failed to open embedded contents, ", err)
 		return 1

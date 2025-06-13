@@ -14,12 +14,18 @@ before:
     - go mod tidy
 
 builds:
+  # You can use multiple binaries with multiple id.
+  # Refer to the https://goreleaser.com/customization/builds/go/
   - env:
       - CGO_ENABLED=0
     goos:
-      - linux
+      #- linux
       - windows
-      - darwin
+      #- darwin
+    goarch:
+      - amd64
+      #- arm
+      #- arm64
 
 archives:
   - formats: [tar.gz]
